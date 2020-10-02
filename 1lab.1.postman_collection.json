@@ -18,7 +18,7 @@
 							"    pm.expect(pm.response.responseTime).to.be.below(200);}\r",
 							"//1b\r",
 							"pm.test(\"Заголовки\"), function(){\r",
-							"    pm.response.to.be.header();\r",
+							"    pm.response.to.have.header(\"Content-Type\",\"application/json;\");\r",
 							"}\r",
 							"//1a\r",
 							"pm.test(\"Тело\"), function(){\r",
