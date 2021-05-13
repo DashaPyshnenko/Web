@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/out.css}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <style type="text/css">
+    </style>
+    <script src="js/checkout.js"></script>
+
+</head>
+<body>
+<div class="vysota">
+
+    <div class="body">
+
+        <div class="p-0 mt-0 ml-sm-0 mr-sm-0 ml-md-0 mr-md-0" id="Sorti">
+            <div class="container">
+                <div th:each="item, state : ${products}">
+
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-auto">
+                                <img class="img-fluid" style="width:170px" th:src="${item.img}" alt="">
+                            </div>
+                            <div class="col">
+                                <div class="card-block px-2">
+                                    <h4 class="card-title" th:text="${item.name}"></h4>
+                                    <p class="card-text" th:text="${item.description}"></p>
+                                    <div class=" h-100 d-flex flex-column justify-content-end p-2">
+                                        <p class="autocost card-text h4" th:text="${item.cost}+ ' ₽'"></p>
+                                    </div>
+                                    <input type="submit" class="delbutton btn btn-danger " th:id="${item.id}" value="Удалить">
+                                    <input type="submit" class="addbutton btn btn-success " th:id="${item.id}" value="Добавить">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                </div>
+                <!--<div class="row col-md-4">-->
+                <div class="card-container item-wrapper">
+                    <!--<h2>Сумма заказа</h2>-->
+                    <div class=" col-md-12 layer h2 ml-n3">Стоимость: <span th:text="${totalCost}"> </span> ₽</div>
+                    <button class="cellbutton btn btn-primary" id="Cell">Купить товар</button>
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
