@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--<title>Title</title>-->
+</head>
+<body>
+<div class="ml-sm-0 mr-sm-0 ml-md-0 mr-md-0">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div th:each="item, state: ${products}" class=" col-sm-6 col-md-4 col-lg-3 p-3">
+                <div class="card text-center h-100 ">
+                    <img class="card-img-top" th:src="${item.img}" alt=""> <!--"'images/' + ${item.name} + '.jpg'"-->
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title autoname" th:text="${item.name}"></h5>
+                        <p class="card-text btn" th:text="${item.description}"></p>
+                        <div class=" h-100 d-flex flex-column justify-content-end p-2">
+                            <p class="autocost card-text h4" th:text="${item.cost}+ ' ₽'"></p>
+                        </div>
+                        <input type="submit" class="btn add_item btn-block btn-primary mt-auto" th:id="${item.id}" value="Добавить">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
