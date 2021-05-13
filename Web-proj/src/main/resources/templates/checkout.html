@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/out.css}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <style type="text/css">
+   .html {
+    background-color: FloralWhite;
+flex-wrap: wrap;
+}
+	.masthead {
+	  height: 100vh;
+	  min-height: 350px;
+	  background-image: url('https://img5.goodfon.com/wallpaper/nbig/f/79/eustoma-tsvety-fon-2.jpg');
+	  background-size: cover;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  mr-n5;
+}
+
+    </style>
+    <script src="js/checkout.js"></script>
+
+</head>
+<body>
+<div class="vysota">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container-fluid p-3 ml-sm-3 mr-sm-3 ml-md-5 mr-md-5 ">
+        <a class="navbar-brand mt-n2" href="#"><img
+                src="https://yandex-images.clstorage.net/B1X00a315/f93ba126i/bNK_3q1ii7nNL83iiX9DLXKeI1uLMzbbgCeOpMVl8n3AvxyZo750Rd5uJOFXwQLAvUPpr2A8knBHQGaDTs9K_3iW49LRHoatxCaU55ELimkzqyYPomJirrF6xvCcOKYlvZpd7cbvHWWCA-VUkgDrbUi3DWfMeaJ4cjEi5nKTGg7BkhKzGFY3LU3TaQrAI0-d46pzi49D-vaAO96VTbkmHLjLOJiHKtSRpid5CCbcswVgaz3vqJmuSFaZFkNmAyqaLAYS3wj-Q23BZ4WeUF-vWSO6n8_rJw7eLHfG7XEZIvzMN5Q8ix5M8TKf-XyiyNvBzEeZP7CB0jxCAf4bjusePrj2ujPInrOBjVdhSujPw7VvrtNTp79uAtyr8tVBLf580AMUPEuq5Gn2EwGImphzLRBjHavUYXZMqm2yC-LXLmrwHiIb8D5TtYW_fQIEJ0OJp277OysHtgKMQ_Jhzb32jMRHSDDXBnCZagsJELZUb93Edy3TUE1-cGIRgreSdxZaOFIaEyCCw62RM6lOgO-3uXMK_4drtzIqDFfKnbHl_gica-AYK75YUdoTLXR2vFvNQG9ty1DlUmSSEaLLIrOu2iD27mMcDr9xKS99ylBfO3XbhlMTi0M-PmhLXuVF7QI4kBcsPF9mxO0640G0dtDn8Zzrrbf0IWZ05g2WYw7jCu6UKppjSOqj3WlLWaboH9v5n5ov12dvkoL0v8pdwS2i5PjrXBCnThSBRhNB8EoYO9mwdwF_JPFiUMa17pdSTx4WONZ-fwjyz_mZrxn-cHNn1f9i02vTiw5mCEfOWTFdYuTExyTApz7E7aY7PYwmKMuxeKMZy9TRehiGiQ4fdgfS4oSmVg-47hup6Rtdptxv791z4ofP48PqXnyzwsUlqTaIbBecBP_eGI3a512QLuRXmWjT9fcw1RpU1m3mR2J7Ru6cqvrz8JY3VXVXnU4c85-tnzIf9xcPvlr4LzapmU0w"
+                alt="logo" style="width:90px;">
+        </a>
+        <div class="page-cook nav-item h5"> <!--mb-n1-->
+            <div class="container"><span id="myBtn">City</span></div>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto mt-2">
+                <li class="nav-item h5">
+                    <a class="nav-link" href="/home-with-session">Главная</a>
+                </li>
+                <li class="nav-item h5 ">
+                    <a class="nav-link" href="#">О нас</a>
+                </li>
+                <li class="nav-item h5">
+                    <a class="nav-link" href="#">Отзывы</a>
+                </li>
+                <li class="nav-item h5">
+                    <a class="nav-link" href="#">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="body">
+<h1>Hello Spring Leaf!</h1>
+<h2 th:text="${sid}"></h2>
+
+<!--<div class="row page-content content-grid" id="ContElement">
+    <div class="row col-md-8">
+        <div class="content-item col-md-12" th:each="product, state : ${products}">
+            <div class=" item-wrapper">
+                <div class="container-fluid ">
+                    <div class="row">
+                        <div class="item-image col-md-4">
+                            <img class="blocktext" th:src="${product.img}" alt="">
+                        </div>
+                        <div class=" col-md-8 padding-tb">
+                            <h4 th:text="${product.name}" class="title"/>
+
+                            <div class="item-characteristics">
+                                Производитель: <span th:text="${product.description}"></span>
+
+                            </div>
+                            <div class="item-characteristics">
+                                Город: <span th:text="${product.city}"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-actions row">
+                        <div class="item-price col-md-8">
+                            <span class="span"  th:text="${product.cost}"></span>$</div>
+                        <div class="col-md-4">
+                            <button class="deletbutton" th:id="${product.id}">Удалить</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-4">
+        <div class="card-container item-wrapper">
+            <h2>Сумма заказа</h2>
+            <div class=" col-md-12 layer">Стоимость <span th:text="${totatPrise}"> </span>$</div>
+            <button class="cellbutton" >Купить товар</button>
+        </div>
+    </div>
+</div>-->
+
+
+
+
+
+
+
+<div class="p-3 mt-5 ml-sm-3 mr-sm-3 ml-md-5 mr-md-5" id="Sorti">
+    <div class="container">
+        <div th:each="item, state : ${products}">
+
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-auto">
+                        <img class="img-fluid" style="width:170px" th:src="${item.img}" alt="">
+                    </div>
+                    <div class="col">
+                        <div class="card-block px-2">
+                            <h4 class="card-title" th:text="${item.name}"></h4>
+                            <p class="card-text" th:text="${item.description}"></p>
+                            <div class=" h-100 d-flex flex-column justify-content-end p-2">
+                                <p class="autocost card-text h4" th:text="${item.cost}+ ' ₽'"></p>
+                            </div>
+                            <input type="submit" class="delbutton btn btn-danger " th:id="${item.id}" value="Удалить">
+                            <input type="submit" class="addbutton btn btn-success " th:id="${item.id}" value="Добавить">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+        <!--<div class="row">
+
+
+                <div class="card text-center h-100 ">
+                    <img class="card-img-top" th:src="${item.img}" alt="">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title autoname" th:text="${item.name}"></h5>
+                        <p class="card-text btn" th:text="${item.description}"></p>
+                        <div class=" h-100 d-flex flex-column justify-content-end p-2">
+                            <p class="autocost card-text h4" th:text="${item.cost}+ ' ₽'"></p>
+                        </div>
+                        <input type="submit" class="btn add_item btn-block btn-primary mt-auto" th:id="${item.id}" value="Добавить">
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <!--<div class="row col-md-4">-->
+            <div class="card-container item-wrapper">
+                <!--<h2>Сумма заказа</h2>-->
+                <div class=" col-md-12 layer h2 ml-n3">Стоимость: <span th:text="${totalCost}"> </span> ₽</div>
+                <button class="cellbutton btn btn-primary" id="Cell">Купить товар</button>
+            </div>
+        <!--</div>-->
+    </div>
+</div>
+
+<!--<h1>Hello Spring Leaf!</h1>
+<h2 th:text="${sid}"></h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Available from</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.description}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.availableFrom}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="container">
+    <h2>Stacked form</h2>
+    <form action="/action_page.php">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>-->
+</div>
+
+    <footer class="footer">
+        <div class="footer-copyright text-center py-3 ">
+            <div class="blu">© 2020 Copyright:
+                <a href="#"> MDBootstrap.com</a></div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
