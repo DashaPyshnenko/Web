@@ -1,0 +1,55 @@
+.body {
+    background-color: FloralWhite;
+    width:100%;
+    min-height: 100vh;
+}
+/*
+table td,
+table th {
+    border: 1px solid black;
+}*/
+.masthead {
+      background-image: url("https://www.zastavki.com/pictures/1920x1200/2017Auto___Jaguar_Silver_Jaguar_F-Type_car_on_the_sky_background_115063_18.jpg");
+	  height: 100vh;
+	  max-height: 450px;
+	  background-size: cover;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  width:100%;
+	  mr-n1;
+	  }
+
+/**
+{
+border: 1px solid red;
+}*/
+
+.foot {
+    background-color: #424242 ;
+    width:100%;
+    color: #F0FFF0;
+}
+.btn-group .btn:not(:first-child) {
+    margin-left: -1px;
+}
+.btn-group .btn {
+    float: left;
+    border-radius: 0;
+}
+.btn {
+    display: inline-block;
+    padding: .75em .8em;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #34495e;
+    color: #34495e;
+    font-size: 1rem;
+    background-color: rgba(52,73,94,0);
+    transition: .2s ease-out;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+
